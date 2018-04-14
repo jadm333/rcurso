@@ -883,6 +883,333 @@ hljs.initHighlightingOnLoad();
 <pre><code>[1] 5
 </code></pre>
 
+<pre><code class="r"># Esto es un comentario
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Objetos</h3>
+<div class="column column1 slideContent" >
+<h2>Variables</h2>
+
+<p>Se definen de la siguiente forma y son exactamente iguales</p>
+
+<pre><code class="r">a &lt;- 1
+2 -&gt; b
+c = 3
+</code></pre>
+
+<p>Uso:</p>
+
+<pre><code class="r">a+b+c
+</code></pre>
+
+<pre><code>[1] 6
+</code></pre>
+
+<pre><code class="r">a*2+c-(100*a*b)/c-400
+</code></pre>
+
+<pre><code>[1] -461.6667
+</code></pre>
+
+
+</div>
+
+<div class="column column2 slideContent" >
+
+
+<p>Se pueden renombrar o mutar</p>
+
+<pre><code class="r">a = 5
+b = 6
+c = 7.8
+</code></pre>
+
+<h2>Como nombrar a las variables</h2>
+
+<table><thead>
+<tr>
+<th>Nombre Correcto</th>
+<th>Nombre Incorrecto</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>data5</td>
+<td>5data</td>
+</tr>
+<tr>
+<td>VaRiAbLe</td>
+<td>$</td>
+</tr>
+<tr>
+<td>var_muy_larga_4_1</td>
+<td><sup>media</sup></td>
+</tr>
+<tr>
+<td>.variable</td>
+<td>nombre de funcion</td>
+</tr>
+</tbody></table>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Objetos</h3>
+<div class="slideContent" >
+<p>Las variables en r son sensibles a mayusculas y minusculas.</p>
+
+<pre><code class="r">A = 8
+ls()
+</code></pre>
+
+<pre><code>[1] &quot;a&quot; &quot;A&quot; &quot;b&quot; &quot;c&quot;
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Objetos</h3>
+<div class="column column1 slideContent" >
+<h2>Tipo de datos/objetos</h2>
+
+<pre><code class="r">cadena1 = &quot;Hola&quot;
+cadena2 = &#39;Mundo&#39;
+paste(cadena1,cadena2,&quot;!!!&quot;)
+</code></pre>
+
+<pre><code>[1] &quot;Hola Mundo !!!&quot;
+</code></pre>
+
+<pre><code class="r">bol1 = TRUE
+bol2 = FALSE
+complejo = 1+2i
+</code></pre>
+
+<p>Vectores</p>
+
+<pre><code class="r">vec1 = c(1,2,3,4,a)
+vec2 = c(TRUE,FALSE,TRUE)
+vec3 = c(cadena1,cadena2)
+vec3
+</code></pre>
+
+<pre><code>[1] &quot;Hola&quot;  &quot;Mundo&quot;
+</code></pre>
+
+
+</div>
+
+<div class="column column2 slideContent" >
+
+
+<p>Secuencias</p>
+
+<pre><code class="r">vec4 = 1:10
+vec4
+</code></pre>
+
+<pre><code> [1]  1  2  3  4  5  6  7  8  9 10
+</code></pre>
+
+<pre><code class="r">seq(2,10,2)
+</code></pre>
+
+<pre><code>[1]  2  4  6  8 10
+</code></pre>
+
+<pre><code class="r">vec4 + 1:2  
+</code></pre>
+
+<pre><code> [1]  2  4  4  6  6  8  8 10 10 12
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Objetos</h3>
+<div class="column column1 slideContent" >
+<h2>Operadores Logicos</h2>
+
+<table><thead>
+<tr>
+<th>Operador</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>&lt;</td>
+<td>menor</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>mayor</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>menor o igual</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>mayor o igual</td>
+</tr>
+<tr>
+<td>==</td>
+<td>igual a</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>diferente a</td>
+</tr>
+<tr>
+<td>!x</td>
+<td>No x</td>
+</tr>
+<tr>
+<td>x</td>
+<td>y</td>
+</tr>
+<tr>
+<td>x &amp; y</td>
+<td>x e y</td>
+</tr>
+</tbody></table>
+
+
+</div>
+
+<div class="column column2 slideContent" >
+
+
+<p>¿Para qué puedes usarlos?</p>
+
+<pre><code class="r">x = 1:30
+x[10]
+x[-n]
+x[1:5]
+x[-(1:5)]
+x[c(1,8,22)]
+x[&quot;abc&quot;]
+x[x &gt; 15]
+x[x &gt; 15 &amp; x &lt;= 20]
+x[x %in% c(6,8,9)]
+x[x %in% c(&quot;abc&quot;,&quot;hola&quot;)]
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Objetos</h3>
+<div class="column column1 slideContent" >
+<h2>Matrices</h2>
+
+<p>Producto punto y produco exterior:</p>
+
+<pre><code class="r">1:3 %*% 1:3
+</code></pre>
+
+<pre><code>     [,1]
+[1,]   14
+</code></pre>
+
+<pre><code class="r">1:3 %o% 1:3
+</code></pre>
+
+<pre><code>     [,1] [,2] [,3]
+[1,]    1    2    3
+[2,]    2    4    6
+[3,]    3    6    9
+</code></pre>
+
+<p>Definir una matriz:</p>
+
+<pre><code class="r">matriz1 = matrix(1:9,ncol = 3)
+</code></pre>
+
+
+</div>
+
+<div class="column column2 slideContent" >
+
+
+<p>Operaciones de matrices:</p>
+
+<pre><code class="r">t(matriz1) #Transpuesta
+diag(matriz1) # Diagonal
+solve(a,b)  # Resuelve a %*% x = b
+solve(a) # Inversa de a
+### Etc
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+<h3>Objetos</h3>
+<div class="column column1 slideContent" >
+<h2>Funciones</h2>
+
+<p>Funcion en general:</p>
+
+<pre><code class="r">nombre_de_la_funcion(parametro1, parametro2, parametro3, ...)
+</code></pre>
+
+<p>Se pueden componer:</p>
+
+<pre><code class="r">round(mean(1:100))
+</code></pre>
+
+<pre><code>[1] 50
+</code></pre>
+
+<h3>Podemos crear nuestras propias funciones</h3>
+
+<pre><code class="r">nombre_de_la_funcion = function(parametro1, parametro2, parametro3, ...) {
+  ## Aqui ejecuta los comandos
+  return(Valor_a_regresar)
+}
+</code></pre>
+
+
+</div>
+
+<div class="column column2 slideContent" >
+
+
+<p>Ejemplo:</p>
+
+<pre><code class="r">suma = function(a,b){
+  c = a + b
+  return(c)
+}
+suma(10,6)
+</code></pre>
+
+<pre><code>[1] 16
+</code></pre>
+
+<blockquote>
+<p>Checar Scope de funciones</p>
+</blockquote>
+
+<p>Valores por defecto:</p>
+
+<pre><code class="r">suma = function(a=2,b=3){
+  c = a + b
+  return(c)
+}
+suma()
+</code></pre>
+
+<pre><code>[1] 5
+</code></pre>
+
 </div>
 
 </section>

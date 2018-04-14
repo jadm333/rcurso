@@ -202,6 +202,196 @@ vec4
  [1]  1  2  3  4  5  6  7  8  9 10
 ```
 
+```r
+seq(2,10,2)
+```
+
+```
+[1]  2  4  6  8 10
+```
+
+
+
+```r
+vec4 + 1:2  
+```
+
+```
+ [1]  2  4  4  6  6  8  8 10 10 12
+```
+
+Objetos
+========================================================
+## Operadores Logicos
+Operador | Descripción
+---------| -----------
+<        | menor
+>        | mayor
+<=       | menor o igual
+>=       | mayor o igual
+==       | igual a
+!=       | diferente a
+!x       | No x
+x | y    | x o y
+x & y    | x e y
+
+***
+
+¿Para qué puedes usarlos?
+
+```r
+x = 1:30
+x[10]
+x[-n]
+x[1:5]
+x[-(1:5)]
+x[c(1,8,22)]
+x["abc"]
+x[x > 15]
+x[x > 15 & x <= 20]
+x[x %in% c(6,8,9)]
+x[x %in% c("abc","hola")]
+```
+
+
+Objetos
+========================================================
+## Matrices
+
+Producto punto y produco exterior:
+
+```r
+1:3 %*% 1:3
+```
+
+```
+     [,1]
+[1,]   14
+```
+
+```r
+1:3 %o% 1:3
+```
+
+```
+     [,1] [,2] [,3]
+[1,]    1    2    3
+[2,]    2    4    6
+[3,]    3    6    9
+```
+
+Definir una matriz:
+
+```r
+matriz1 = matrix(1:9,ncol = 3)
+```
+
+***
+Operaciones de matrices:
+
+```r
+t(matriz1) #Transpuesta
+diag(matriz1) # Diagonal
+solve(a,b)  # Resuelve a %*% x = b
+solve(a) # Inversa de a
+### Etc
+```
+
+
+Objetos
+========================================================
+## Funciones
+
+Funcion en general:
+
+```r
+nombre_de_la_funcion(parametro1, parametro2, parametro3, ...)
+```
+Se pueden componer:
+
+```r
+round(mean(1:100))
+```
+
+```
+[1] 50
+```
+### Podemos crear nuestras propias funciones
+
+```r
+nombre_de_la_funcion = function(parametro1, parametro2, parametro3, ...) {
+  ## Aqui ejecuta los comandos
+  return(Valor_a_regresar)
+}
+```
+***
+Ejemplo:
+
+```r
+suma = function(a,b){
+  c = a + b
+  return(c)
+}
+suma(10,6)
+```
+
+```
+[1] 16
+```
+
+> Checar Scope de funciones
+
+Valores por defecto:
+
+```r
+suma = function(a=2,b=3){
+  c = a + b
+  return(c)
+}
+suma()
+```
+
+```
+[1] 5
+```
+Estructuras
+========================================================
+
+```r
+if(){
+  
+} else {
+  
+}
+
+for(){
+  
+}
+
+while(){
+  
+}
+```
+
+
+Algunos ejercicios
+========================================================
+Creando funciones resuelve:
+
+1.-¿Cuanto digitos tiene $a^n$?
+
+```r
+nDigits = function(a,n){
+  
+}
+```
+2.- 
+
+
+
+
+
+
 
 
 
