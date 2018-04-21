@@ -47,5 +47,15 @@ collatz_max = function(n){
 }
 
 ## Ejercicio 5
-data = data.frame(indice=1:10000)
+data = data.frame(indice=1:10000,lapply())
 
+data$steps = map(data$indice,collatz_num)
+data$maxi = map(data$indice,collatz_max)
+
+
+##
+plot(data$indice,data$steps)
+par(cex=0.2)
+plot(data$indice, data$maxi,ylim = c(0,100000),type = "p")
+hist(data$steps)
+     
