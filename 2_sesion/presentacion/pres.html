@@ -794,7 +794,7 @@ hljs.initHighlightingOnLoad();
   <div class="slides">
 
 <section data-state="section" data-transition="linear" data-transition-speed="default">
-<h1>R</h1><p>JosÃ© DÃ­az<br/>Abril 21, 2018</p>
+<h1>R</h1><p>José Díaz<br/>Abril 21, 2018</p>
 
 <div class="slideContent" >
 
@@ -802,12 +802,12 @@ hljs.initHighlightingOnLoad();
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
-<h3>Algunos ejercicios de programaciÃ³n</h3>
+<h3>Algunos ejercicios de programación</h3>
 <div class="slideContent" >
 <p>1.- Considera el siguiente algoritmo.</p>
 
 <ul>
-<li>Se empieza con un nÃºmero \( n \)</li>
+<li>Se empieza con un número \( n \)</li>
 <li>Si \( n \) es par se divide por 2, si es impar se multiplica por tres y se le suma uno.</li>
 <li>Es decir:
 \[  f(n) =  \left\{\begin{matrix}
@@ -816,7 +816,7 @@ hljs.initHighlightingOnLoad();
 \end{matrix}\right. \]</li>
 </ul>
 
-<p>Crear una funciÃ³n que dado \( n \) regrese el valor aplicado la anterior funcion</p>
+<p>Crear una función que dado \( n \) regrese el valor aplicado la anterior funcion</p>
 
 <pre><code class="r">f = function(n){
 
@@ -829,10 +829,10 @@ hljs.initHighlightingOnLoad();
 <section data-transition="linear" data-transition-speed="default">
 
 <div class="slideContent noTitle" >
-<p>2.- Con la funciÃ³n del ejercicio anterior crear la secuencia de nÃºmero de la siguiente forma:</p>
+<p>2.- Con la función del ejercicio anterior crear la secuencia de número de la siguiente forma:</p>
 
 <ul>
-<li>Para un nÃºmero \( n \), aplicar la funciÃ³n recursivamente hasta que se cumpla la condiciÃ³n: \( n>1 \)</li>
+<li>Para un número \( n \), aplicar la función recursivamente hasta que se cumpla la condición: \( n>1 \)</li>
 <li>Ejemplo, si \( n=5 \):
 
 <ol>
@@ -854,6 +854,66 @@ hljs.initHighlightingOnLoad();
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
+
+<div class="slideContent noTitle" >
+<p>3.- Modificar la funcion anterior para que unicamente regrese el número de pasos para llegar a 1</p>
+
+<ul>
+<li>Ejemplo, si \( n=5 \):
+
+<ol>
+<li>\( f(5) = 16 \)</li>
+<li>\( f(16) = 8 \)</li>
+<li>\( f(8) = 4 \)</li>
+<li>\( f(4) = 2 \)</li>
+<li>\( f(2) = 1 \)</li>
+<li>Regresa =&gt;<code>5</code></li>
+</ol></li>
+</ul>
+
+<blockquote>
+<p>Se puede resolver unicamente contando la longitud del vector de la función anterior, pero para números muy grandes puede causar <em>memory leaks</em></p>
+</blockquote>
+
+<pre><code class="r">collatz_num = function(n){
+
+}
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
+
+<div class="slideContent noTitle" >
+<p>4.-Similar al ejercicio anterior pero unicamente regresar el numero máximo de la secuencia</p>
+
+<ul>
+<li>Ejemplo, si \( n=5 \):
+
+<ol>
+<li>\( f(5) = 16 \)</li>
+<li>\( f(16) = 8 \)</li>
+<li>\( f(8) = 4 \)</li>
+<li>\( f(4) = 2 \)</li>
+<li>\( f(2) = 1 \)</li>
+<li>Regresa =&gt;<code>16</code></li>
+</ol></li>
+</ul>
+
+<blockquote>
+<p>Se puede resolver unicamente sacando el maximo del vector de la función anterior, pero para números muy grandes puede causar <em>memory leaks</em></p>
+</blockquote>
+
+<pre><code class="r">collatz_max = function(n){
+
+}
+</code></pre>
+
+</div>
+
+</section>
+<section data-transition="linear" data-transition-speed="default">
 <h3>Data Frames</h3>
 <div class="slideContent" >
 <ul>
@@ -864,12 +924,34 @@ hljs.initHighlightingOnLoad();
 <pre><code class="r">class(iris[,1])
 </code></pre>
 
+<p>Accesar a datos:</p>
+
+<pre><code class="r">iris[2,c(1,2)]
+iris[1:3,1]
+iris[1:3,1,drop=FALSE]
+iris[-(2:52), 1:3]
+iris$Sepal.Length
+iris[&#39;Sepal.Length&#39;]
+</code></pre>
+
 </div>
 
 </section>
 <section data-transition="linear" data-transition-speed="default">
+<h3>Listas</h3>
+<div class="slideContent" >
+<p>Las listas son un objeto más de R. Son una colección de coualquier tipo</p>
 
-<div class="slideContent noTitle" >
+<pre><code class="r"> n = c(2, 3, 5) 
+s = c(&quot;aa&quot;, &quot;bb&quot;, &quot;cc&quot;, &quot;dd&quot;, &quot;ee&quot;) 
+b = c(TRUE, FALSE, TRUE, FALSE, FALSE) 
+lista = list(n, s, b, 3, iris)
+</code></pre>
+
+<p>Como acceder a sus elementos</p>
+
+<pre><code>Error in eval(expr, envir, enclos) : objeto &#39;lista&#39; no encontrado
+</code></pre>
 
 </div>
 
