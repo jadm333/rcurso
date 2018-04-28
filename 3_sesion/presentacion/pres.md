@@ -1,0 +1,163 @@
+R
+========================================================
+author: José Díaz
+date: Abril 21, 2018
+autosize: true
+
+Importación de datos
+========================================================
+
+```r
+library(tidyverse)
+tidyverse_conflicts()
+```
+
+```
+── Conflicts ──────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+```
+
+- Leer un csv
+- Leer un txt
+- Leer un archivo de sas
+
+Tidy Data
+========================================================
+
+```r
+table1
+table2
+table3
+table4a
+table4b
+```
+
+- Reglas para datos limpios
+    1. Cada variable tiene su propia columna
+    2. Cada observación tiene su propio renglon
+    3. Cada valor tiene su propia celda
+
+- Mutaciones
+
+```r
+data = table1 %>% mutate(rate = cases / population * 10000)
+```
+
+Unificación
+========================================================
+
+```r
+data = table4a %>% 
+  gather(`1999`, `2000`, key = "year", value = "cases")
+table4b %>% 
+  gather(`1999`, `2000`, key = "year", value = "population")
+```
+![alt text](tidy-9.png)
+
+Separación
+========================================================
+
+```r
+data = spread(table2, key = type, value = count)
+```
+
+![alt text](tidy-8.png)
+
+Separación y unificación
+========================================================
+
+```r
+table3 %>% separate(rate, into = c("cases", "population"), sep = "/")
+table3 %>% separate(rate, into = c("cases", "population"), convert = TRUE)
+```
+
+![alt text](tidy-17.png)
+
+Fechas
+========================================================
+
+- Año
+    + `%Y` 4 digitos
+    + `%y` 2 digitos
+- Mes
+    + %m  (2 digitos). 
+    + %b  (“Jan”). 
+    + %B  (“January”). 
+- Day
+    + %d (2 digits). 
+    + %e (optional leading space). 
+    
+****
+
+- Time
+    + %H 0-23 hour. 
+    + %I 0-12, must be used with %p. 
+    + %p AM/PM indicator. 
+    + %M minutes. 
+    + %S integer seconds. 
+    + %OS real seconds. 
+    + %Z Time zone (as name, e.g. America/Chicago).
+    
+Datos relacionales
+========================================================
+
+```r
+library(nycflights13)
+```
+
+![alt text](relational-nycflights.png)
+
+Lo mas parecido a SQL
+========================================================
+- Operador `%>%`
+
+```r
+data = planes %>% 
+  count(tailnum) %>% 
+  filter(n > 1)
+
+weather %>% 
+  count(year, month, day, hour, origin) %>% 
+  filter(n > 1)
+```
+
+- Joins
+
+```r
+flights2 <- flights %>% 
+  select(year:day, hour, origin, dest, tailnum, carrier)
+
+query = flights2 %>%
+  select(-origin, -dest) %>% 
+  left_join(airlines, by = "carrier")
+```
+
+
+========================================================
+
+```r
+flights2 %>% 
+  left_join(weather)
+flights2 %>% 
+  left_join(planes, by = "tailnum")
+flights2 %>% 
+  left_join(airports, c("dest" = "faa"))
+```
+
+- Como juntamos table4a y table4b
+
+- Otros 
+    + ´semi_join(x, y)´ śe queda todas las observaciones de x que hacen match con y
+    + ´anti_join(x, y)´ quita todas las observaciones de x que hacen match en y
+
+
+```r
+top_dest = flights %>% count(dest, sort = TRUE) %>% head(10)
+flights %>% semi_join(top_dest)
+
+flights %>% anti_join(planes, by = "tailnum") %>% count(tailnum, sort = TRUE)
+```
+
+
+
