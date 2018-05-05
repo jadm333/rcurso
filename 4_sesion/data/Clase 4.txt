@@ -1,0 +1,76 @@
+
+
+1) Importar csv (Altas_clientes)
+2) Importar Excel (Diccionario Sucursales)
+3) Importar Excel (Histórico de cobranza)
+4) Importar txt delimitado (|) (Ejecutivo)
+
+
+Ejercicios:
+
+1) De la tabla (Altas_clientes) obtener:
+	a) Eliminar duplicados.
+	b) Edad al 30-Nov-2017 para cada cliente.
+	c) Quintil con base en la columna Score.
+	d) F1 (Sumarle un mes a la columna "Fecha de alta")
+	e) ¿Cuantos créditos tiene cada cliente?
+	f) ¿cuál es el monto máximo, mínimo, media, suma por mes?
+
+2) Agregarle a la tabla (Altas_clientes) la columna Sucursal de la tabla (Diccionario Sucursales).
+
+	a) ¿Cual es la suma del monto por sucursales para cada mes?
+	
+
+	suc	mes1		mes2		mes3
+	1	suma_mes1	suma_mes2	suma_mes3
+	2	suma_mes1	suma_mes2	suma_mes3
+	3	suma_mes1	suma_mes2	suma_mes3
+	
+
+	Ojala que aquí puedas transponer una tabla (a manera de ejemplo).
+
+	b) Porcentaje que representa cada sucursal de la colocación total (Suma todo el monto)
+
+3) De la Tabla (Histórico de cobranza)
+	a) Agregar una columna que da un valor dependiento de los días de mora, te paso la relación:
+		
+		días de mora	MOP (Así se llama la columna nueva)
+		0		1	
+		1-29		2
+		30-59		3
+		60-89		4
+		90+		5
+
+	b) Una vez teniendo esta nueva columna Concatenarla por contrato:
+		ejemplo:
+
+			contato 	Mop
+			x1		1
+			x1		2
+			x1		1
+			x1		2
+			x1		4
+	se obtendría 
+		
+			contrato	Histórico de mop
+			x1		12124	
+
+	c) Agregarle esta nueva variable a la tabla (Altas_clientes)
+
+
+	d) Responder Cuantos "1" tiene el "Histórico de mop" de cada cliente
+	
+4) Agregar la columna ejecutivo para responder las siguientes preguntas:
+	a) Suma total del ejecutivo
+	b) número de créditos por ejecutivo
+
+
+Estaría Bueno que fueras haciendo histogramas o gráficos de algunos pasos, sólo para ilustrar.
+
+Y que algún resultado lo exportes a Excel o txt.
+
+
+
+
+
+
